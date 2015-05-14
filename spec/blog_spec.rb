@@ -16,7 +16,18 @@ describe Blog do
     blog.posts.empty?.must_equal(false)
   end
 
-  it 'has many authors'
+  it 'has many authors' do
+    blog = Blog.create!(name: 'MikesBlog')
+    author = blog.authors.create!(name: 'Mike Worth')
 
-  it 'has many categories'
+    blog.authors.empty?.must_equal(false)
+  end
+
+  it 'has many categories' do
+
+    blog = Blog.create!(name: 'MikesBlog')
+    category = blog.categories.create!(name: 'Motorsports')
+
+    blog.categories.empty?.must_equal(false)
+  end
 end
