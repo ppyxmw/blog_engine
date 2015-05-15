@@ -23,7 +23,7 @@ describe Author do
     author = Author.new(
       name: 'Ben',
       twitter_handle: '@benlovell'
-      )git
+      )
     author.valid?.must_equal(false)
   end
 end

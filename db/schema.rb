@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150514145651) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authors", force: :cascade do |t|
     t.string  "name"
     t.integer "blog_id"
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20150514145651) do
     t.integer "tag_id"
   end
 
-  add_index "post_tags", ["post_id"], name: "index_post_tags_on_post_id"
-  add_index "post_tags", ["tag_id"], name: "index_post_tags_on_tag_id"
+  add_index "post_tags", ["post_id"], name: "index_post_tags_on_post_id", using: :btree
+  add_index "post_tags", ["tag_id"], name: "index_post_tags_on_tag_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string  "title"
