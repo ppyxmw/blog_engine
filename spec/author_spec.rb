@@ -5,14 +5,14 @@ describe Author do
 
     blog = Blog.create!(name: 'Meh')
     @author = blog.authors.create!(
-      name: 'Ben',
-      twitter_handle: '@benlovell'
+      name: 'Michael',
+      twitter_handle: '@MichaelWorthin1'
       )
   end
 
 
   it 'has a twitter handle' do
-    @author.twitter_handle.must_equal('@benlovell')
+    @author.twitter_handle.must_equal('@MichaelWorthin1')
   end
 
   it 'is valid with valid attributes' do
@@ -22,7 +22,7 @@ describe Author do
   it 'requires a blog' do
     author = Author.new(
       name: 'Ben',
-      twitter_handle: '@benlovell'
+      twitter_handle: '@MichaelWorthin1'
       )
     author.valid?.must_equal(false)
   end

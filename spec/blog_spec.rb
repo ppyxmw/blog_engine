@@ -2,7 +2,7 @@ require_relative 'helper'
 
 describe Blog do
   it 'is valid with valid attributes' do
-    blog = Blog.new(name: 'Benlog')
+    blog = Blog.new(name: 'Mikelog')
 
     blog.valid?.must_equal(true)
   end
@@ -21,11 +21,9 @@ describe Blog do
     blog.valid?.must_equal(false)
   end
 
-
-
   it 'has many posts through categories' do
     blog = Blog.create!(name: 'BenBlog')
-    author = blog.authors.create!(name: 'Ben Lovell')
+    author = blog.authors.create!(name: 'Mikes Lovell')
     category = blog.categories.create!(name: 'Motorsports')
 
     Post.create!(

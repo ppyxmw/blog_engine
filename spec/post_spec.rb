@@ -16,6 +16,31 @@ describe Post do
     @tag = @post.tags.create!(name: 'hotwheels')
   end
 
+
+  it 'is valid with valid attributes' do
+    @post.valid?.must_equal(true)
+  end
+
+  # it 'requires a post, blog and category' do
+  #   post = Post.new(
+  #     title: 'Ben',
+  #     content: 'hello hello'
+  #     )
+  #   post.valid?.must_equal(false)
+  # end
+
+
+  describe 'on creation of a post' do
+    it 'sends a tweet to the author' do
+      @post.tweeted_author?.must_equal(true)
+    end
+  end
+
+  it 'defaults "tweeted_author? before creation" to false' do
+    Post.new.tweeted_author?.must_equal(false)
+  end
+
+
   it 'belongs to an author' do
     @author.posts.include?(@post).must_equal(true)
   end
